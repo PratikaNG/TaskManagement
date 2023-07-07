@@ -14,4 +14,17 @@
 <p>{{item}}</p>
 {% endfor %}
 
+<form action="{% url 'home' %}" method=post>
+    {% csrf_token %}
+    <input type="text" name="task" placeholder="Enter task"><br>
+    <input type="text" name="priority" placeholder="Enter priority"><br>
+    <input type="submit" name="" value="Submit"> <br>
+    {% if messages %}
+    {% for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+    {% endif %}
+</form>
+
+
 </html>
