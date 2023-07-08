@@ -18,3 +18,8 @@ def home(request):
         all_items = TaskDB.objects.all()
         return render(request,'index.html',{'all_items':all_items})
 
+def delete(request,list_id):
+    item = TaskDB.objects.get(pk=list_id)
+    item.delete()
+    messages.success(request,('Item has been deleted!!'))
+    return redirect('home') #refreshes the page

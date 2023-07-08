@@ -11,7 +11,7 @@
     <h1>This is a working html page</h1>
 </body>
 {% for item in all_items %}
-<p>{{item}}</p>
+<p>{{item}} <a href="{% url 'delete' item.id %}">DELETE</a></p>
 {% endfor %}
 
 <form action="{% url 'home' %}" method=post>
